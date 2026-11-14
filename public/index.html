@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Özdemir Tarım</title>
-<meta name="description" content="Özdemir Tarım – tohum, gübre, zirai ilaç ve tarımsal danışmanlık hizmetleri.">
+<meta name="description" content="Özdemir Tarım – kendi traktör filomuzla A'dan Z'ye tarla işlemleri; kepçe, zirai drone, çekici ve yevmiyeci ekiplerini tek merkezden koordine ediyoruz. Kadirli / Osmaniye.">
+<meta name="theme-color" content="#1f3f23">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,92 +13,127 @@
   :root{
     --green:#2f5d34; --green-dark:#1f3f23; --leaf:#6a9a3c; --wheat:#e8c872;
     --cream:#faf7ef; --ink:#1d2a1f; --muted:#5b6b5d; --card:#ffffff; --line:#e6e1d3;
+    --wa:#25d366;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
   [id]{scroll-margin-top:68px}
   body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
   h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15}
 
   /* Header */
-  header{position:sticky;top:0;z-index:10;background:rgba(250,247,239,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:20;background:rgba(250,247,239,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-weight:700;font-size:1.35rem;color:var(--green-dark)}
-  .logo svg{width:34px;height:34px}
-  nav ul{display:flex;gap:28px;list-style:none;font-weight:500}
+  .logo{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:var(--green-dark);white-space:nowrap}
+  .logo svg{width:34px;height:34px;flex-shrink:0}
+  nav ul{display:flex;gap:22px;list-style:none;font-weight:500;font-size:.95rem}
   nav a:hover{color:var(--leaf)}
-  .menu-btn{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--green-dark)}
+  nav .nav-cta{background:var(--green);color:#fff;padding:8px 16px;border-radius:999px}
+  nav .nav-cta:hover{background:var(--green-dark);color:#fff}
+  .menu-btn{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--green-dark);-webkit-appearance:none;appearance:none}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;transition:transform .15s,background .15s;border:0;cursor:pointer;font:inherit;font-weight:600;-webkit-appearance:none;appearance:none;text-align:center}
+  .btn:hover{transform:translateY(-2px)}
+  .btn svg{width:20px;height:20px;flex-shrink:0}
+  .btn-primary{background:var(--wheat);color:var(--green-dark)}
+  .btn-wa{background:var(--wa);color:#0b3d1e}
+  .btn-ghost{border:2px solid rgba(255,255,255,.6);color:#fff;background:transparent}
+  .btn-green{background:var(--green);color:#fff}
+  .btn-outline{border:2px solid var(--green);color:var(--green);background:transparent}
+  .btn-row{display:flex;flex-wrap:wrap;gap:12px}
 
   /* Hero */
   .hero{background:linear-gradient(160deg,var(--green-dark),var(--green) 60%,var(--leaf));color:#fff;position:relative;overflow:hidden}
-  .hero .wrap{padding:110px 20px 130px;position:relative;z-index:1}
-  .hero h1{font-size:clamp(2.2rem,5vw,3.8rem);max-width:720px}
+  .hero .wrap{padding:96px 20px 130px;position:relative;z-index:1;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+  .hero .wrap>*{min-width:0}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.7rem)}
   .hero h1 span{color:var(--wheat)}
-  .hero p{font-size:1.15rem;max-width:560px;margin:20px 0 34px;opacity:.92}
-  .btn{display:inline-block;padding:14px 28px;border-radius:999px;font-weight:600;transition:transform .15s}
-  .btn:hover{transform:translateY(-2px)}
-  .btn-primary{background:var(--wheat);color:var(--green-dark)}
-  .btn-ghost{border:2px solid rgba(255,255,255,.6);color:#fff;margin-left:10px}
+  .hero .tagline{font-size:clamp(1.1rem,2.2vw,1.35rem);font-weight:600;margin-top:14px;color:#f3ead0}
+  .hero p.sub{font-size:1.05rem;max-width:600px;margin:18px 0 32px;opacity:.92}
+  .hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:26px}
+  .hero-card h3{font-size:1.2rem;margin-bottom:14px;color:var(--wheat)}
+  .hero-card ul{list-style:none;display:grid;gap:10px}
+  .hero-card li{display:flex;gap:10px;align-items:center;font-weight:500}
+  .hero-card li span{font-size:1.3rem;width:28px;text-align:center}
+  .hero-card .phone{display:block;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);font-size:.9rem;opacity:.9}
+  .hero-card .phone b{display:block;font-family:Fraunces,serif;font-size:1.5rem;color:#fff;opacity:1}
   .hero-fields{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;opacity:.18}
 
   /* Sections */
   section{padding:90px 0}
   .eyebrow{color:var(--leaf);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
-  .section-title{font-size:clamp(1.8rem,3.5vw,2.6rem);margin:8px 0 16px;color:var(--green-dark)}
-  .lead{color:var(--muted);max-width:640px}
+  .section-title{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:8px 0 16px;color:var(--green-dark);max-width:820px}
+  .lead{color:var(--muted);max-width:720px}
+  .lead+.lead{margin-top:14px}
 
-  .about{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
-  .about>*,.contact-grid>*{min-width:0}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
-  .stat b{display:block;font-family:Fraunces,serif;font-size:1.9rem;color:var(--green)}
-  .stat small{color:var(--muted)}
-  .about-art{background:var(--wheat);border-radius:24px;aspect-ratio:1/1;display:grid;place-items:center}
-  .about-art svg{width:70%}
+  .values{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+  .values span{background:#e6efd9;color:var(--green-dark);font-weight:600;font-size:.85rem;padding:5px 12px;border-radius:999px}
+
+  .highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+  .hl{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;gap:12px;align-items:flex-start;font-weight:600;color:var(--green-dark)}
+  .hl i{font-style:normal;font-size:1.4rem;line-height:1.2}
 
   .services{background:#f1ecdd}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:40px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;margin-top:40px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:box-shadow .2s,transform .2s}
   .card:hover{box-shadow:0 12px 30px rgba(31,63,35,.12);transform:translateY(-4px)}
-  .icon{width:52px;height:52px;border-radius:14px;background:#e6efd9;display:grid;place-items:center;font-size:1.6rem;margin-bottom:16px}
-  .card h3{font-size:1.25rem;margin-bottom:8px;color:var(--green-dark)}
+  .icon{width:54px;height:54px;border-radius:14px;background:#e6efd9;display:grid;place-items:center;font-size:1.7rem;margin-bottom:16px}
+  .card h3{font-size:1.2rem;margin-bottom:8px;color:var(--green-dark)}
   .card p{color:var(--muted);font-size:.96rem}
+  .tag{display:inline-block;font-size:.75rem;font-weight:600;color:var(--leaf);margin-left:4px;font-family:Inter,sans-serif}
 
-  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:40px}
+  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:40px}
   .why div{border-left:3px solid var(--leaf);padding-left:18px}
-  .why h3{font-size:1.15rem;margin-bottom:6px}
+  .why h3{font-size:1.12rem;margin-bottom:6px;color:var(--green-dark)}
   .why p{color:var(--muted);font-size:.95rem}
 
+  .join{background:var(--wheat)}
+  .join-box{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+  .join-box>*{min-width:0}
+  .join .eyebrow{color:var(--green)}
+  .join .lead{color:#3d4a3e}
+  .join-actions{display:grid;gap:14px}
+  .join-actions .btn{width:100%;padding:18px 24px;font-size:1.05rem}
+
   .contact{background:var(--green-dark);color:#fff}
+  .contact .eyebrow{color:var(--wheat)}
   .contact .section-title{color:#fff}
-  .contact .lead{color:rgba(255,255,255,.8)}
+  .contact .lead{color:rgba(255,255,255,.82)}
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+  .contact-grid>*{min-width:0}
   .info-item{display:flex;gap:14px;margin-bottom:22px}
   .info-item span{font-size:1.4rem}
   .info-item small{display:block;opacity:.7}
+  .info-item a{text-decoration:underline;text-underline-offset:3px;word-break:break-word}
   form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:28px;display:grid;gap:14px}
-  input,textarea{width:100%;padding:13px 15px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:16px;-webkit-appearance:none;appearance:none}
+  form h3{font-size:1.2rem}
+  input,select,textarea{width:100%;padding:13px 15px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:16px;-webkit-appearance:none;appearance:none}
+  select option{color:#1d2a1f}
   input::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)}
-  textarea{min-height:120px;resize:vertical}
-  form .btn{border:0;cursor:pointer;font:inherit;font-weight:600;-webkit-appearance:none;appearance:none}
+  textarea{min-height:110px;resize:vertical}
+  form small{opacity:.7;font-size:.82rem}
 
-  footer{background:#152c18;color:rgba(255,255,255,.7);padding:26px 0;font-size:.9rem}
+  footer{background:#152c18;color:rgba(255,255,255,.7);padding:26px 0 90px;font-size:.9rem}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
-  @media (max-width:820px){
-    nav ul{display:none;position:absolute;top:68px;left:0;right:0;background:var(--cream);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--line)}
+  .wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:30;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .wa-float svg{width:32px;height:32px}
+
+  @media (max-width:980px){
+    nav ul{display:none;position:absolute;top:68px;left:0;right:0;background:var(--cream);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--line);font-size:1rem}
     nav ul.open{display:flex}
+    nav .nav-cta{align-self:flex-start}
     .menu-btn{display:block}
-    .about,.contact-grid{grid-template-columns:1fr}
-    .about-art{max-width:320px;width:100%;margin:0 auto}
-    .stats{gap:10px}
-    .stat{padding:14px 6px}
-    .stat b{font-size:1.45rem}
-    .stat small{display:block;font-size:.8rem;line-height:1.3}
-    .btn-ghost{margin:12px 0 0}
+    .hero .wrap,.join-box,.contact-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:600px){
     section{padding:64px 0}
+    .hero .wrap{padding:64px 20px 110px}
+    .btn-row .btn{width:100%}
+    .card{padding:22px}
   }
 </style>
 </head>
@@ -105,28 +141,49 @@
 
 <header>
   <div class="wrap nav">
-    <a href="#" class="logo">
+    <a href="#anasayfa" class="logo">
       <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#2f5d34"/><path d="M20 31V14" stroke="#e8c872" stroke-width="2.4" stroke-linecap="round"/><path d="M20 22c-6 0-8-5-8-8 5 0 8 3 8 8zM20 18c5 0 7-4 7-7-4 0-7 3-7 7z" fill="#e8c872"/></svg>
       Özdemir Tarım
     </a>
     <nav>
       <button class="menu-btn" aria-label="Menü" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
       <ul id="menu" onclick="this.classList.remove('open')">
+        <li><a href="#anasayfa">Ana Sayfa</a></li>
         <li><a href="#hakkimizda">Hakkımızda</a></li>
-        <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#neden-biz">Neden Biz</a></li>
-        <li><a href="#iletisim">İletişim</a></li>
+        <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+        <li><a href="#neden-biz">Neden Biz?</a></li>
+        <li><a href="#ekibe-katil">Ekibe Katıl / İş Talebi</a></li>
+        <li><a href="#iletisim" class="nav-cta">İletişim</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="anasayfa">
   <div class="wrap">
-    <h1>Toprağa emek, <span>bereketli</span> hasat.</h1>
-    <p>Özdemir Tarım olarak çiftçilerimize kaliteli tohum, gübre, zirai ilaç ve uzman danışmanlık hizmetleri sunuyoruz.</p>
-    <a href="#hizmetler" class="btn btn-primary">Hizmetlerimiz</a>
-    <a href="#iletisim" class="btn btn-ghost">Bize Ulaşın</a>
+    <div>
+      <h1>Tarımın her yerinde <span>tam imâr</span></h1>
+      <div class="tagline">Tarlada A'dan Z'ye Güçlü Çözüm, Sahada Kesintisiz Koordinasyon.</div>
+      <p class="sub">Kendi traktör filomuz ve tam donanımlı tarım ekipmanlarımızla toprağı hazırlıyor, ekiyor ve hasada ulaştırıyoruz. Üstelik güçlü saha ağımızla kepçeciden zirai drone operatörüne, çekiciden yevmiyeci ekibine kadar bölgedeki tüm iş gücünü tek merkezden koordine ediyoruz.</p>
+      <div class="btn-row">
+        <a class="btn btn-wa" href="https://wa.me/905011530180?text=Merhaba%2C%20i%C5%9F%20%2F%20ekip%20talebim%20var." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
+          Hemen İş / Ekip Talep Et
+        </a>
+        <a href="#hizmetler" class="btn btn-ghost">Hizmetlerimizi İncele</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Tek telefonla sahadayız</h3>
+      <ul>
+        <li><span>🚜</span>A'dan Z'ye tarla işlemleri</li>
+        <li><span>🚁</span>Zirai drone ile ilaçlama</li>
+        <li><span>🏗️</span>Kepçe & iş makinesi</li>
+        <li><span>🚛</span>Çekici & ağır nakliye</li>
+        <li><span>👷</span>Yevmiyeci & saha ekibi</li>
+      </ul>
+      <a class="phone" href="tel:+905011530180">Telefon & WhatsApp (7/24)<b>0501 153 01 80</b></a>
+    </div>
   </div>
   <svg class="hero-fields" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0 80 Q300 20 600 70 T1200 50 V120 H0Z" fill="#fff"/>
@@ -135,79 +192,95 @@
 </section>
 
 <section id="hakkimizda">
-  <div class="wrap about">
-    <div>
-      <div class="eyebrow">Hakkımızda</div>
-      <h2 class="section-title">Yılların tecrübesiyle çiftçinin yanında</h2>
-      <p class="lead">Özdemir Tarım, tarımsal üretimin her aşamasında üreticilere güvenilir ürünler ve doğru bilgiyle destek olan bir aile şirketidir. Amacımız; verimi artırmak, maliyeti düşürmek ve toprağımızı gelecek nesillere sağlıklı bırakmaktır.</p>
-      <div class="stats">
-        <div class="stat"><b>15+</b><small>Yıllık tecrübe</small></div>
-        <div class="stat"><b>1000+</b><small>Mutlu çiftçi</small></div>
-        <div class="stat"><b>500+</b><small>Ürün çeşidi</small></div>
-      </div>
-    </div>
-    <div class="about-art">
-      <svg viewBox="0 0 200 200" aria-hidden="true">
-        <circle cx="150" cy="50" r="22" fill="#fff" opacity=".7"/>
-        <path d="M0 150 Q100 110 200 150 V200 H0Z" fill="#6a9a3c"/>
-        <path d="M0 170 Q100 140 200 170 V200 H0Z" fill="#2f5d34"/>
-        <g stroke="#1f3f23" stroke-width="3" stroke-linecap="round" fill="#1f3f23">
-          <line x1="60" y1="150" x2="60" y2="80"/><ellipse cx="60" cy="78" rx="6" ry="12"/>
-          <ellipse cx="52" cy="98" rx="5" ry="10" transform="rotate(-30 52 98)"/><ellipse cx="68" cy="98" rx="5" ry="10" transform="rotate(30 68 98)"/>
-          <line x1="100" y1="140" x2="100" y2="60"/><ellipse cx="100" cy="58" rx="6" ry="12"/>
-          <ellipse cx="92" cy="80" rx="5" ry="10" transform="rotate(-30 92 80)"/><ellipse cx="108" cy="80" rx="5" ry="10" transform="rotate(30 108 80)"/>
-          <line x1="140" y1="150" x2="140" y2="85"/><ellipse cx="140" cy="83" rx="6" ry="12"/>
-          <ellipse cx="132" cy="103" rx="5" ry="10" transform="rotate(-30 132 103)"/><ellipse cx="148" cy="103" rx="5" ry="10" transform="rotate(30 148 103)"/>
-        </g>
-      </svg>
+  <div class="wrap">
+    <div class="eyebrow">Hakkımızda</div>
+    <div class="values"><span>Güvenilir</span><span>Şeffaf</span><span>Sizden Biri</span></div>
+    <h2 class="section-title">Sadece Makine Değil, Tam Teşekküllü Bir Saha Operasyonu Sunuyoruz</h2>
+    <p class="lead">Özdemir Tarım olarak tarımın ve saha işlerinin ne kadar zamanla yarıştığını çok iyi biliyoruz. Kendi bünyemizdeki modern traktör filomuz ve her türlü tarla işlemine uygun ekipmanlarımızla çiftçimizin toprağını A'dan Z'ye işliyoruz.</p>
+    <p class="lead">Bununla da kalmıyor; bölgemizde kurduğumuz geniş iletişim ve iş ağı sayesinde iş makinelerinden (kepçe) zirai ilaçlama dronelarına, oto/traktör çekicilerinden deneyimli yevmiyeci ekiplerine kadar ihtiyaç duyulan her noktaya anında müdahale ediyoruz. Nerede bir iş varsa, doğru ekibi ve doğru makineyi en hızlı şekilde oraya yönlendiriyoruz.</p>
+    <div class="highlights">
+      <div class="hl"><i>🚜</i>A'dan Z'ye Tam Donanımlı Traktör & Ekipman Filosu</div>
+      <div class="hl"><i>📲</i>7/24 Kesintisiz Saha & WhatsApp Koordinasyonu</div>
+      <div class="hl"><i>🎯</i>Tek Merkez Tarım, İş Makinesi ve İş Gücü Çözümleri</div>
+      <div class="hl"><i>✅</i>%100 Zamanında ve Güvenilir Teslimat</div>
+      <div class="hl"><i>➕</i>Ve daha birçok hizmet</div>
     </div>
   </div>
 </section>
 
 <section id="hizmetler" class="services">
   <div class="wrap">
-    <div class="eyebrow">Hizmetler</div>
-    <h2 class="section-title">Neler sunuyoruz?</h2>
-    <p class="lead">Ekimden hasada kadar ihtiyaç duyduğunuz her şey tek adreste.</p>
+    <div class="eyebrow">Hizmetlerimiz</div>
+    <h2 class="section-title">Tarladan Sahaya İhtiyacınız Olan Her Şey Tek Çatı Altında</h2>
+    <p class="lead">İster kendi tarlanızın tüm ekim-bakım işleri olsun, ister acil bir iş makinesi ya da ekip ihtiyacı; tek telefonla sahadayız.</p>
     <div class="grid">
-      <div class="card"><div class="icon">🌱</div><h3>Tohum & Fide</h3><p>Bölgenize ve toprağınıza uygun, yüksek verimli sertifikalı tohum ve fide çeşitleri.</p></div>
-      <div class="card"><div class="icon">🧪</div><h3>Gübre</h3><p>Kimyasal, organik ve yaprak gübreleri; toprak analizine göre doğru gübreleme önerileri.</p></div>
-      <div class="card"><div class="icon">🛡️</div><h3>Zirai İlaç</h3><p>Hastalık ve zararlılara karşı ruhsatlı bitki koruma ürünleri ve uygulama desteği.</p></div>
-      <div class="card"><div class="icon">👨‍🌾</div><h3>Tarımsal Danışmanlık</h3><p>Ziraat mühendisi desteğiyle tarla ziyareti, ürün planlama ve verim artırma danışmanlığı.</p></div>
+      <div class="card"><div class="icon">🚜</div><h3>A'dan Z'ye Tarla İşlemleri <span class="tag">Kendi Filomuz</span></h3><p>Kendi traktör filomuz ve geniş ekipman parkurumuzla sürüm, toprak hazırlığı, ekim, gübreleme, ilaçlama ve hasat dahil tarlanızın tüm işlemlerini eksiksiz yapıyoruz.</p></div>
+      <div class="card"><div class="icon">🚁</div><h3>Zirai Drone ile İlaçlama ve Gübreleme</h3><p>Ağımızdaki lisanslı drone pilotlarıyla mahsulünüze zarar vermeden, en zorlu arazi koşullarında bile hızlı, homojen ve tasarruflu ilaçlama hizmeti sağlıyoruz.</p></div>
+      <div class="card"><div class="icon">🏗️</div><h3>Kepçe ve İş Makinesi Kiralama</h3><p>Arazi tesviyesi, kanal açma, temel kazısı, yükleme ve her türlü hafriyat işleriniz için operatörlü kepçe ve iş makinelerini en kısa sürede sahanıza yönlendiriyoruz.</p></div>
+      <div class="card"><div class="icon">🚛</div><h3>Çekici ve Ağır Nakliye Desteği</h3><p>Yolda kalan araçlarınız, tarım makineleriniz veya taşınması gereken ekipmanlarınız için ağımızdaki çekici şoförleriyle 7/24 hızlı kurtarma ve nakliye çözümleri sunuyoruz.</p></div>
+      <div class="card"><div class="icon">👷</div><h3>Günlük Yevmiyeci ve Saha Ekibi</h3><p>Çapa, hasat, yükleme, dikim ve mevsimlik tarım işçiliği için güvenilir ve çalışkan yevmiyeci ekiplerini işinizin yoğunluğuna göre organize ediyoruz.</p></div>
+      <div class="card"><div class="icon">📡</div><h3>Bölgesel Saha Koordinasyonu <span class="tag">WhatsApp Ağı</span></h3><p>Bölgemizde nerede ne iş yapılıyorsa anlık takip ediyor; iş verenle iş yapanı (operatör, şoför, usta, işçi) aracısız ve en hızlı şekilde buluşturuyoruz.</p></div>
     </div>
   </div>
 </section>
 
 <section id="neden-biz">
   <div class="wrap">
-    <div class="eyebrow">Neden Biz</div>
-    <h2 class="section-title">Özdemir Tarım farkı</h2>
+    <div class="eyebrow">Neden Özdemir Tarım?</div>
+    <h2 class="section-title">Sahayı Bilen, İşi Yapan ve Çözüm Üreten Ekip</h2>
     <div class="why">
-      <div><h3>Güvenilir ürünler</h3><p>Sadece ruhsatlı ve kalitesi kanıtlanmış markalarla çalışıyoruz.</p></div>
-      <div><h3>Uygun fiyat</h3><p>Çiftçimizin bütçesini gözeten adil fiyatlar ve ödeme kolaylıkları.</p></div>
-      <div><h3>Uzman kadro</h3><p>Sahada deneyimli ekibimizle doğru ürünü, doğru zamanda öneriyoruz.</p></div>
-      <div><h3>Hızlı teslimat</h3><p>Siparişleriniz en kısa sürede kapınıza ya da tarlanıza ulaşır.</p></div>
+      <div><h3>Kendi Ekipmanımızla Garantili İş</h3><p>Tarla işlerinizi dışarıya bağımlı kalmadan, doğrudan kendi traktör ve ekipman filomuzla birinci sınıf işçilikle tamamlıyoruz.</p></div>
+      <div><h3>Geniş ve Güvenilir Usta/Operatör Ağı</h3><p>Kepçecisinden dronecusuna, çekicisinden işçisine kadar her biri işinin ehli kişilerden oluşan hazır bir ağa sahibiz.</p></div>
+      <div><h3>Zaman Kaybına Son</h3><p>"Makine nerede, işçi bulabilecek miyiz?" derdini bitiriyoruz. Tek noktadan tüm saha operasyonunuzu planlıyoruz.</p></div>
+      <div><h3>Şeffaf ve Adil Fiyatlandırma</h3><p>Hem tarla sahiplerinin hem de sahada ter döken operatör ve işçilerimizin hakkını koruyan dürüst bir çalışma sistemi sunuyoruz.</p></div>
+      <div><h3>Dilediğiniz Gibi Yönlendirme</h3><p>İşinizi nasıl istiyorsanız öyle planlıyoruz; ekibi ve makineyi ihtiyacınıza göre yönlendiriyoruz.</p></div>
+      <div><h3>Kendi Ekipmanlarınız Yıpranmasın</h3><p>Kendi traktör ve ekipmanlarınızı yormadan, işinizi bizim filomuz ve ağımızla yaptırın.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ekibe-katil" class="join">
+  <div class="wrap join-box">
+    <div>
+      <div class="eyebrow">Ekibe Katıl / İş Talebi</div>
+      <h2 class="section-title">İşiniz mi Var, Yoksa Ekibimize mi Katılmak İstiyorsunuz?</h2>
+      <p class="lead">Tarlanız için ekipman, kepçe, drone, çekici veya yevmiyeci arıyorsanız bize hemen yazın. Eğer siz de kendi makinenizle veya emeğinizle saha ağımızda yer almak istiyorsanız WhatsApp koordinasyon grubumuza katılmak için bizimle iletişime geçin.</p>
+    </div>
+    <div class="join-actions">
+      <a class="btn btn-green" href="https://wa.me/905011530180?text=Merhaba%2C%20i%C5%9F%20%2F%20ekipman%20talebim%20var." target="_blank" rel="noopener">🚜 İş / Ekipman Talep Et</a>
+      <a class="btn btn-outline" href="https://wa.me/905011530180?text=Merhaba%2C%20saha%20a%C4%9F%C4%B1n%C4%B1za%20kat%C4%B1lmak%20istiyorum." target="_blank" rel="noopener">🤝 Saha Ağına Katıl</a>
     </div>
   </div>
 </section>
 
 <section id="iletisim" class="contact">
   <div class="wrap">
-    <div class="eyebrow" style="color:var(--wheat)">İletişim</div>
-    <h2 class="section-title">Bize ulaşın</h2>
-    <p class="lead">Sorularınız, siparişleriniz veya tarla ziyareti talepleriniz için bizimle iletişime geçin.</p>
+    <div class="eyebrow">İletişim</div>
+    <h2 class="section-title">7/24 Saha ve Koordinasyon Hattı</h2>
+    <p class="lead">Acil çekici, kepçe, drone, şoför, 2. el alım satım, yevmiyeci ve daha birçok hizmet talepleriniz veya A'dan Z'ye tarla işlemleri fiyat teklifi almak için bize dilediğiniz an ulaşabilirsiniz.</p>
     <div class="contact-grid">
       <div>
-        <div class="info-item"><span>📍</span><div><small>Adres</small>Adres bilgisi buraya eklenecek</div></div>
-        <div class="info-item"><span>📞</span><div><small>Telefon</small><a href="tel:+900000000000">+90 (000) 000 00 00</a></div></div>
-        <div class="info-item"><span>✉️</span><div><small>E-posta</small><a href="mailto:info@ozdemirtarim.com">info@ozdemirtarim.com</a></div></div>
-        <div class="info-item"><span>🕗</span><div><small>Çalışma Saatleri</small>Pazartesi – Cumartesi, 08:00 – 19:00</div></div>
+        <div class="info-item"><span>📍</span><div><small>Bölge</small>Kadirli / Osmaniye ve Çevre İlçeler</div></div>
+        <div class="info-item"><span>📞</span><div><small>Telefon & WhatsApp</small><a href="tel:+905011530180">0501 153 01 80</a></div></div>
+        <div class="info-item"><span>✉️</span><div><small>E-posta</small><a href="mailto:mertozdemr12@icloud.com">mertozdemr12@icloud.com</a></div></div>
+        <div class="info-item"><span>🕗</span><div><small>Çalışma Saatleri</small>Sahada 7/24 Kesintisiz İletişim</div></div>
       </div>
-      <form onsubmit="event.preventDefault();var f=this;location.href='mailto:info@ozdemirtarim.com?subject='+encodeURIComponent('Web sitesi mesajı - '+f.ad.value)+'&body='+encodeURIComponent(f.mesaj.value+'\n\n'+f.ad.value+' / '+f.tel.value);">
+      <form id="talep">
+        <h3>Hızlı Talep Formu</h3>
         <input name="ad" placeholder="Adınız Soyadınız" required>
-        <input name="tel" placeholder="Telefon numaranız">
-        <textarea name="mesaj" placeholder="Mesajınız" required></textarea>
-        <button class="btn btn-primary" type="submit">Mesaj Gönder</button>
+        <select name="konu" aria-label="Talep konusu">
+          <option>A'dan Z'ye tarla işlemleri</option>
+          <option>Zirai drone ilaçlama / gübreleme</option>
+          <option>Kepçe / iş makinesi</option>
+          <option>Çekici / nakliye</option>
+          <option>Yevmiyeci / saha ekibi</option>
+          <option>2. el alım satım</option>
+          <option>Saha ağına katılmak istiyorum</option>
+          <option>Diğer</option>
+        </select>
+        <textarea name="mesaj" placeholder="Talebiniz (yer, tarih, iş detayı)" required></textarea>
+        <button class="btn btn-wa" type="submit">WhatsApp ile Gönder</button>
+        <small>Gönder'e basınca mesajınız WhatsApp'ta hazır olarak açılır.</small>
       </form>
     </div>
   </div>
@@ -216,9 +289,22 @@
 <footer>
   <div class="wrap">
     <span>© <span id="yil"></span> Özdemir Tarım. Tüm hakları saklıdır.</span>
-    <span>Toprağa emek, bereketli hasat.</span>
+    <span>Tarımın her yerinde tam imâr.</span>
   </div>
 </footer>
-<script>document.getElementById('yil').textContent=new Date().getFullYear()</script>
+
+<a class="wa-float" href="https://wa.me/905011530180" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
+</a>
+
+<script>
+document.getElementById('yil').textContent=new Date().getFullYear();
+document.getElementById('talep').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=this;
+  var t='Merhaba, ben '+f.ad.value+'.\nKonu: '+f.konu.value+'\n'+f.mesaj.value;
+  window.open('https://wa.me/905011530180?text='+encodeURIComponent(t),'_blank');
+});
+</script>
 </body>
 </html>
