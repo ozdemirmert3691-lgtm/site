@@ -2,152 +2,298 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Özdemir Tarım</title>
 <meta name="description" content="Özdemir Tarım – kendi traktör filomuzla A'dan Z'ye tarla işlemleri; kepçe, zirai drone, çekici ve yevmiyeci ekiplerini tek merkezden koordine ediyoruz. Kadirli / Osmaniye.">
-<meta name="theme-color" content="#1f3f23">
+<meta name="theme-color" content="#0f2416">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%230f2416'/%3E%3Cpath d='M20 31V14' stroke='%23e3b54f' stroke-width='2.6' stroke-linecap='round'/%3E%3Cpath d='M20 22c-6 0-8-5-8-8 5 0 8 3 8 8zM20 18c5 0 7-4 7-7-4 0-7 3-7 7z' fill='%23e3b54f'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,800;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --green:#2f5d34; --green-dark:#1f3f23; --leaf:#6a9a3c; --wheat:#e8c872;
-    --cream:#faf7ef; --ink:#1d2a1f; --muted:#5b6b5d; --card:#ffffff; --line:#e6e1d3;
-    --wa:#25d366;
+    --f900:#0b1d11; --f800:#0f2416; --f700:#1a3a24; --f600:#24502f; --f500:#2f6a3c;
+    --sage:#9bb88a; --gold:#e3b54f; --gold-l:#f3dc9a; --soil:#a4623a;
+    --paper:#f7f2e6; --paper-2:#efe7d4; --ink:#16211a; --muted:#5d6a5f; --line:#e2d8c1;
+    --wa:#25d366; --r:22px; --ease:cubic-bezier(.2,.7,.2,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-  [id]{scroll-margin-top:68px}
-  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+  [id]{scroll-margin-top:72px}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;overflow-x:hidden}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
-  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15}
+  img,svg{display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.08;letter-spacing:-.015em}
+  em{font-style:italic;font-weight:500}
 
-  /* Header */
-  header{position:sticky;top:0;z-index:20;background:rgba(250,247,239,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;color:var(--green-dark);white-space:nowrap}
-  .logo svg{width:34px;height:34px;flex-shrink:0}
-  nav ul{display:flex;gap:22px;list-style:none;font-weight:500;font-size:.95rem}
-  nav a:hover{color:var(--leaf)}
-  nav .nav-cta{background:var(--green);color:#fff;padding:8px 16px;border-radius:999px}
-  nav .nav-cta:hover{background:var(--green-dark);color:#fff}
-  .menu-btn{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--green-dark);-webkit-appearance:none;appearance:none}
+  /* ---------- Header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,box-shadow .4s,color .4s;color:#fff}
+  header.solid{background:rgba(247,242,230,.9);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 1px 0 var(--line);color:var(--ink)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:Fraunces,serif;font-weight:800;font-size:1.3rem;white-space:nowrap;letter-spacing:-.01em}
+  .logo svg{width:36px;height:36px;flex-shrink:0}
+  .logo small{display:block;font-family:Inter,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;opacity:.65;margin-top:2px}
+  nav ul{display:flex;align-items:center;gap:26px;list-style:none;font-weight:500;font-size:.93rem}
+  nav a{position:relative;padding:4px 0}
+  nav a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+  nav a:not(.nav-cta):hover::after{transform:scaleX(1)}
+  .nav-cta{background:var(--gold);color:var(--f900)!important;padding:10px 18px!important;border-radius:999px;font-weight:600;transition:transform .2s,box-shadow .2s}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(227,181,79,.35)}
+  .menu-btn{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;color:inherit;-webkit-appearance:none;appearance:none;position:relative}
+  .menu-btn span{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px;transition:transform .3s,opacity .3s}
+  .menu-btn span:nth-child(1){top:15px}.menu-btn span:nth-child(2){top:21px}.menu-btn span:nth-child(3){top:27px}
+  .menu-open .menu-btn span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .menu-open .menu-btn span:nth-child(2){opacity:0}
+  .menu-open .menu-btn span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-  /* Buttons */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;transition:transform .15s,background .15s;border:0;cursor:pointer;font:inherit;font-weight:600;-webkit-appearance:none;appearance:none;text-align:center}
+  /* ---------- Buttons ---------- */
+  .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;border:0;cursor:pointer;font:inherit;font-weight:600;font-size:1rem;-webkit-appearance:none;appearance:none;text-align:center;transition:transform .25s var(--ease),box-shadow .25s}
+  .btn::before{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .7s var(--ease)}
+  .btn:hover::before{left:140%}
   .btn:hover{transform:translateY(-2px)}
   .btn svg{width:20px;height:20px;flex-shrink:0}
-  .btn-primary{background:var(--wheat);color:var(--green-dark)}
-  .btn-wa{background:var(--wa);color:#0b3d1e}
-  .btn-ghost{border:2px solid rgba(255,255,255,.6);color:#fff;background:transparent}
-  .btn-green{background:var(--green);color:#fff}
-  .btn-outline{border:2px solid var(--green);color:var(--green);background:transparent}
-  .btn-row{display:flex;flex-wrap:wrap;gap:12px}
+  .btn-wa{background:var(--wa);color:#063a1b;box-shadow:0 10px 30px rgba(37,211,102,.28)}
+  .btn-gold{background:var(--gold);color:var(--f900);box-shadow:0 10px 30px rgba(227,181,79,.3)}
+  .btn-ghost{background:rgba(255,255,255,.06);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45)}
+  .btn-dark{background:var(--f800);color:#fff}
+  .btn-line{background:transparent;color:var(--f800);box-shadow:inset 0 0 0 2px var(--f800)}
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px}
+  .arrow{transition:transform .3s var(--ease)}
+  .btn:hover .arrow{transform:translateX(4px)}
 
-  /* Hero */
-  .hero{background:linear-gradient(160deg,var(--green-dark),var(--green) 60%,var(--leaf));color:#fff;position:relative;overflow:hidden}
-  .hero .wrap{padding:96px 20px 130px;position:relative;z-index:1;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;color:#fff;overflow:hidden;
+    background:radial-gradient(120% 80% at 80% 10%,#2b5a35 0%,transparent 55%),radial-gradient(90% 70% at 10% 90%,#1d4027 0%,transparent 60%),linear-gradient(180deg,#0b1d11 0%,#123020 60%,#1a3a24 100%)}
+  .sun{position:absolute;right:12%;top:16%;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,#ffe7a8 0%,#e3b54f 38%,rgba(227,181,79,0) 70%);filter:blur(2px);opacity:.75;animation:sunPulse 8s ease-in-out infinite}
+  @keyframes sunPulse{50%{transform:scale(1.08);opacity:.9}}
+  .hero .wrap{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:clamp(190px,22vw,290px);display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
   .hero .wrap>*{min-width:0}
-  .hero h1{font-size:clamp(2.2rem,5vw,3.7rem)}
-  .hero h1 span{color:var(--wheat)}
-  .hero .tagline{font-size:clamp(1.1rem,2.2vw,1.35rem);font-weight:600;margin-top:14px;color:#f3ead0}
-  .hero p.sub{font-size:1.05rem;max-width:600px;margin:18px 0 32px;opacity:.92}
-  .hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:26px}
-  .hero-card h3{font-size:1.2rem;margin-bottom:14px;color:var(--wheat)}
-  .hero-card ul{list-style:none;display:grid;gap:10px}
-  .hero-card li{display:flex;gap:10px;align-items:center;font-weight:500}
-  .hero-card li span{font-size:1.3rem;width:28px;text-align:center}
-  .hero-card .phone{display:block;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);font-size:.9rem;opacity:.9}
-  .hero-card .phone b{display:block;font-family:Fraunces,serif;font-size:1.5rem;color:#fff;opacity:1}
-  .hero-fields{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;opacity:.18}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l);padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+  .kicker i{width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 0 rgba(37,211,102,.7);animation:ping 2s infinite}
+  @keyframes ping{70%{box-shadow:0 0 0 10px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+  .hero h1{font-size:clamp(2.7rem,7.2vw,5.6rem);margin:22px 0 0;font-weight:800}
+  .hero h1 .l{display:block;overflow:hidden;padding:0 .12em .24em 0;margin-bottom:-.18em}
+  .hero h1 .l>span{display:inline-block}
+  .hero h1 .gold{color:var(--gold);font-style:italic;font-weight:500;position:relative;white-space:nowrap}
+  .swash{position:absolute;left:0;right:0;bottom:-.08em;width:100%;height:.3em;overflow:visible}
+  .swash path{stroke:var(--gold);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420}
+  .tagline{font-size:clamp(1.05rem,2vw,1.3rem);font-weight:500;margin-top:26px;color:#f1e6c6;max-width:600px}
+  .hero p.sub{font-size:1.02rem;max-width:580px;margin:16px 0 36px;color:rgba(255,255,255,.78)}
+  .hero-card{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.16);border-radius:28px;padding:30px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+  .hero-card h3{font-size:1.35rem;color:var(--gold-l);font-weight:500;font-style:italic;margin-bottom:18px}
+  .hero-card ul{list-style:none;display:grid;gap:4px}
+  .hero-card li{display:flex;gap:14px;align-items:center;font-weight:500;padding:10px 12px;border-radius:14px;transition:background .25s}
+  .hero-card li:hover{background:rgba(255,255,255,.07)}
+  .hero-card li b{font-family:Fraunces,serif;font-weight:500;font-style:italic;color:var(--gold);font-size:.95rem;width:24px}
+  .hero-card .phone{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;padding:18px 20px;border-radius:18px;background:var(--gold);color:var(--f900);transition:transform .25s var(--ease)}
+  .hero-card .phone:hover{transform:translateY(-2px)}
+  .hero-card .phone small{display:block;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+  .hero-card .phone strong{font-family:Fraunces,serif;font-size:1.55rem;font-weight:800;letter-spacing:-.01em}
+  .hero-card .phone svg{width:30px;height:30px}
+  .land{position:absolute;left:0;right:0;bottom:0;width:100%;height:clamp(190px,26vw,340px);z-index:1}
+  .tractor{animation:drive 34s linear infinite}
+  @keyframes drive{from{transform:translateX(-260px)}to{transform:translateX(1700px)}}
+  .wheel{transform-box:fill-box;transform-origin:center;animation:spin 1.6s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .dust{animation:dust 1.2s ease-out infinite;transform-box:fill-box;transform-origin:center}
+  @keyframes dust{from{opacity:.5;transform:translate(0,0) scale(.6)}to{opacity:0;transform:translate(-30px,-12px) scale(1.6)}}
+  .drone{animation:hover 5s ease-in-out infinite}
+  @keyframes hover{0%,100%{transform:translate(1060px,96px)}50%{transform:translate(1010px,82px)}}
+  .rotor{transform-box:fill-box;transform-origin:center;animation:rot .25s linear infinite}
+  @keyframes rot{50%{transform:scaleX(.25)}}
+  .blink{animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.15}}
+  .spray{animation:spray 1.4s linear infinite}
+  @keyframes spray{from{stroke-dashoffset:0}to{stroke-dashoffset:-24}}
+  .scroll-cue{position:absolute;left:50%;bottom:26px;z-index:3;transform:translateX(-50%);width:26px;height:42px;border-radius:14px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
+  .scroll-cue::after{content:"";position:absolute;left:50%;top:9px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#fff;animation:cue 1.8s ease-in-out infinite}
+  @keyframes cue{60%{transform:translateY(12px);opacity:0}}
 
-  /* Sections */
-  section{padding:90px 0}
-  .eyebrow{color:var(--leaf);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
-  .section-title{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:8px 0 16px;color:var(--green-dark);max-width:820px}
-  .lead{color:var(--muted);max-width:720px}
-  .lead+.lead{margin-top:14px}
+  /* hero entrance */
+  .js .hero h1 .l>span{transform:translateY(105%)}
+  .js .hero .fade{opacity:0;transform:translateY(18px)}
+  .loaded .hero h1 .l>span{transform:none;transition:transform 1.1s var(--ease)}
+  .loaded .hero h1 .l:nth-child(2)>span{transition-delay:.12s}
+  .loaded .hero .fade{opacity:1;transform:none;transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .loaded .hero .d1{transition-delay:.35s}.loaded .hero .d2{transition-delay:.5s}.loaded .hero .d3{transition-delay:.65s}.loaded .hero .d4{transition-delay:.8s}
+  .loaded .swash path{stroke-dashoffset:0;transition:stroke-dashoffset 1.4s .7s var(--ease)}
+  html:not(.js) .swash path{stroke-dashoffset:0}
 
-  .values{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
-  .values span{background:#e6efd9;color:var(--green-dark);font-weight:600;font-size:.85rem;padding:5px 12px;border-radius:999px}
+  /* ---------- Marquee ---------- */
+  .marquee{background:var(--gold);color:var(--f900);overflow:hidden;padding:18px 0;border-block:1px solid rgba(0,0,0,.08)}
+  .marquee-track{display:flex;width:max-content;animation:marq 38s linear infinite}
+  .marquee span{font-family:Fraunces,serif;font-size:1.45rem;font-weight:700;padding:0 22px;white-space:nowrap;display:flex;align-items:center;gap:44px}
+  .marquee span::after{content:"✦";font-size:.9rem;opacity:.6}
+  @keyframes marq{to{transform:translateX(-50%)}}
 
-  .highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
-  .hl{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;gap:12px;align-items:flex-start;font-weight:600;color:var(--green-dark)}
-  .hl i{font-style:normal;font-size:1.4rem;line-height:1.2}
+  /* ---------- Sections ---------- */
+  section{padding:120px 0;position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;color:var(--f500);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.76rem}
+  .eyebrow::before{content:"";width:34px;height:1.5px;background:currentColor}
+  .title{font-size:clamp(2rem,4.6vw,3.5rem);margin:16px 0 22px;color:var(--f800);max-width:880px}
+  .title em{color:var(--soil)}
+  .lead{color:var(--muted);font-size:1.07rem;max-width:640px}
+  .lead+.lead{margin-top:16px}
 
-  .services{background:#f1ecdd}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;margin-top:40px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:box-shadow .2s,transform .2s}
-  .card:hover{box-shadow:0 12px 30px rgba(31,63,35,.12);transform:translateY(-4px)}
-  .icon{width:54px;height:54px;border-radius:14px;background:#e6efd9;display:grid;place-items:center;font-size:1.7rem;margin-bottom:16px}
-  .card h3{font-size:1.2rem;margin-bottom:8px;color:var(--green-dark)}
-  .card p{color:var(--muted);font-size:.96rem}
-  .tag{display:inline-block;font-size:.75rem;font-weight:600;color:var(--leaf);margin-left:4px;font-family:Inter,sans-serif}
+  /* about */
+  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:start}
+  .about>*{min-width:0}
+  .values{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0}
+  .values span{font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:1.05rem;color:var(--f700);padding:8px 18px;border-radius:999px;background:var(--paper-2);box-shadow:inset 0 0 0 1px var(--line)}
+  .hl-list{list-style:none;border-top:1px solid var(--line)}
+  .hl-list li{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);transition:padding .35s var(--ease)}
+  .hl-list li:hover{padding-left:10px}
+  .hl-list b{font-family:Fraunces,serif;font-weight:500;font-style:italic;font-size:1.6rem;color:var(--gold);line-height:1}
+  .hl-list span{font-family:Fraunces,serif;font-size:1.22rem;font-weight:500;color:var(--f800);line-height:1.3}
 
-  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:40px}
-  .why div{border-left:3px solid var(--leaf);padding-left:18px}
-  .why h3{font-size:1.12rem;margin-bottom:6px;color:var(--green-dark)}
-  .why p{color:var(--muted);font-size:.95rem}
+  /* services: bento */
+  .services{background:var(--paper-2)}
+  .services-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+  .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+  .card{position:relative;overflow:hidden;background:#fffdf7;border-radius:var(--r);padding:34px 30px 30px;box-shadow:0 1px 0 var(--line),0 0 0 1px var(--line);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(15,36,22,.28),0 0 0 1px var(--line)}
+  .card::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--gold),var(--soil));transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+  .card:hover::after{transform:scaleX(1)}
+  .card .num{position:absolute;top:22px;right:26px;font-family:Fraunces,serif;font-style:italic;font-size:1rem;color:var(--muted);opacity:.7}
+  .card .ic{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;font-size:1.9rem;background:var(--paper-2);margin-bottom:24px;transition:transform .5s var(--ease)}
+  .card:hover .ic{transform:rotate(-8deg) scale(1.08)}
+  .card h3{font-size:1.38rem;margin-bottom:10px;color:var(--f800)}
+  .card p{color:var(--muted);font-size:.97rem}
+  .card .tag{display:inline-block;margin-bottom:12px;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--soil)}
+  .card.feature{grid-column:span 2;background:var(--f800);color:#fff;padding:44px 40px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+  .card.feature h3{color:#fff;font-size:clamp(1.6rem,2.6vw,2.2rem)}
+  .card.feature p{color:rgba(255,255,255,.78);font-size:1.02rem}
+  .card.feature .tag{color:var(--gold)}
+  .card.feature .ic{background:rgba(255,255,255,.08)}
+  .card.feature .num{color:var(--gold-l)}
+  .card.feature .art{position:relative;height:100%;min-height:170px}
+  .card.feature .art svg{width:100%;height:100%}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .chips span{font-size:.8rem;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
 
-  .join{background:var(--wheat)}
-  .join-box{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
-  .join-box>*{min-width:0}
-  .join .eyebrow{color:var(--green)}
-  .join .lead{color:#3d4a3e}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;counter-reset:s}
+  .step{position:relative;padding:34px 30px;border-radius:var(--r);background:#fffdf7;box-shadow:0 0 0 1px var(--line)}
+  .step b{display:block;font-family:Fraunces,serif;font-size:4.2rem;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--gold);margin-bottom:14px}
+  .step h3{font-size:1.3rem;color:var(--f800);margin-bottom:8px}
+  .step p{color:var(--muted);font-size:.97rem}
+
+  /* why: dark */
+  .why-sec{background:var(--f800);color:#fff;overflow:hidden}
+  .why-sec .eyebrow{color:var(--gold)}
+  .why-sec .title{color:#fff}
+  .why-sec .title em{color:var(--gold)}
+  .why-sec .glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(227,181,79,.18),transparent 65%);right:-200px;top:-200px;pointer-events:none}
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:56px;background:rgba(255,255,255,.12);border-radius:var(--r);overflow:hidden}
+  .why div{background:var(--f800);padding:34px 30px;transition:background .4s}
+  .why div:hover{background:var(--f700)}
+  .why i{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:rgba(227,181,79,.14);color:var(--gold);font-style:normal;font-family:Fraunces,serif;font-weight:700;margin-bottom:18px}
+  .why h3{font-size:1.22rem;margin-bottom:8px}
+  .why p{color:rgba(255,255,255,.7);font-size:.95rem}
+
+  /* join */
+  .join-card{position:relative;overflow:hidden;border-radius:34px;padding:70px 60px;background:linear-gradient(135deg,#f1cf73 0%,#e3b54f 45%,#c98f3b 100%);display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:center;box-shadow:0 40px 90px -30px rgba(164,98,58,.55)}
+  .join-card>*{min-width:0;position:relative}
+  .join-card .eyebrow{color:var(--f800)}
+  .join-card .title{color:var(--f900)}
+  .join-card .lead{color:#3b3420}
+  .join-card .rings{position:absolute;right:-120px;bottom:-160px;width:520px;height:520px;opacity:.25}
   .join-actions{display:grid;gap:14px}
-  .join-actions .btn{width:100%;padding:18px 24px;font-size:1.05rem}
+  .join-actions .btn{width:100%;padding:20px 26px;font-size:1.05rem;justify-content:space-between}
 
-  .contact{background:var(--green-dark);color:#fff}
-  .contact .eyebrow{color:var(--wheat)}
-  .contact .section-title{color:#fff}
-  .contact .lead{color:rgba(255,255,255,.82)}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+  /* contact */
+  .contact{background:var(--f900);color:#fff}
+  .contact .eyebrow{color:var(--gold)}
+  .contact .title{color:#fff}
+  .contact .lead{color:rgba(255,255,255,.72)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:50px;margin-top:56px}
   .contact-grid>*{min-width:0}
-  .info-item{display:flex;gap:14px;margin-bottom:22px}
-  .info-item span{font-size:1.4rem}
-  .info-item small{display:block;opacity:.7}
-  .info-item a{text-decoration:underline;text-underline-offset:3px;word-break:break-word}
-  form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:28px;display:grid;gap:14px}
-  form h3{font-size:1.2rem}
-  input,select,textarea{width:100%;padding:13px 15px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:16px;-webkit-appearance:none;appearance:none}
-  select option{color:#1d2a1f}
-  input::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)}
-  textarea{min-height:110px;resize:vertical}
-  form small{opacity:.7;font-size:.82rem}
+  .info{display:grid;gap:14px}
+  .info a,.info div.it{display:flex;gap:18px;align-items:center;padding:20px 22px;border-radius:18px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);transition:background .3s,transform .3s var(--ease)}
+  .info a:hover{background:rgba(255,255,255,.08);transform:translateX(4px)}
+  .info .ico{flex-shrink:0;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.3rem;background:rgba(227,181,79,.14)}
+  .info small{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600}
+  .info strong{font-weight:600;font-size:1.05rem;word-break:break-word}
+  form{background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);border-radius:26px;padding:34px;display:grid;gap:14px}
+  form h3{font-size:1.5rem;font-weight:500;font-style:italic;color:var(--gold-l);margin-bottom:6px}
+  .field{position:relative}
+  input,select,textarea{width:100%;padding:16px 18px;border-radius:14px;border:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);background:rgba(0,0,0,.18);color:#fff;font:inherit;font-size:16px;-webkit-appearance:none;appearance:none;transition:box-shadow .25s,background .25s}
+  input:focus,select:focus,textarea:focus{outline:0;box-shadow:inset 0 0 0 2px var(--gold);background:rgba(0,0,0,.28)}
+  select{padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23e3b54f' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
+  select option{color:#16211a}
+  input::placeholder,textarea::placeholder{color:rgba(255,255,255,.5)}
+  textarea{min-height:120px;resize:vertical}
+  form small{color:rgba(255,255,255,.5);font-size:.82rem}
 
-  footer{background:#152c18;color:rgba(255,255,255,.7);padding:26px 0 90px;font-size:.9rem}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  footer{background:var(--f900);color:rgba(255,255,255,.6);padding:0 0 110px;font-size:.9rem;overflow:hidden}
+  .wordmark{font-family:Fraunces,serif;font-weight:800;font-size:clamp(3.4rem,13vw,11rem);line-height:.9;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(227,181,79,.35);white-space:nowrap;padding:40px 0 30px;border-top:1px solid rgba(255,255,255,.08)}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
-  .wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:30;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.3);transition:transform .3s var(--ease)}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:ping 2.4s infinite}
   .wa-float svg{width:32px;height:32px}
 
-  @media (max-width:980px){
-    nav ul{display:none;position:absolute;top:68px;left:0;right:0;background:var(--cream);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--line);font-size:1rem}
-    nav ul.open{display:flex}
-    nav .nav-cta{align-self:flex-start}
+  /* reveal */
+  .js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .js .rv.in{opacity:1;transform:none}
+  .js .rv.d1{transition-delay:.08s}.js .rv.d2{transition-delay:.16s}.js .rv.d3{transition-delay:.24s}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1020px){
+    nav ul{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:flex-start;gap:4px;padding:18px 22px 26px;background:rgba(247,242,230,.98);color:var(--ink);box-shadow:0 20px 40px rgba(0,0,0,.15);font-size:1.15rem;font-family:Fraunces,serif;transform:translateY(-12px);opacity:0;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s}
+    nav ul li{width:100%}
+    nav ul a{display:block;padding:10px 0}
+    nav .nav-cta{display:inline-block;margin-top:10px;font-family:Inter,sans-serif;font-size:1rem}
+    .menu-open nav ul{opacity:1;transform:none;visibility:visible}
+    .menu-open header{background:rgba(247,242,230,.98);color:var(--ink)}
     .menu-btn{display:block}
-    .hero .wrap,.join-box,.contact-grid{grid-template-columns:1fr}
+    .hero .wrap{grid-template-columns:1fr;gap:40px}
+    .about,.contact-grid,.join-card{grid-template-columns:1fr}
+    .bento{grid-template-columns:1fr 1fr}
+    .card.feature{grid-column:span 2}
+    .why{grid-template-columns:1fr 1fr}
   }
-  @media (max-width:600px){
-    section{padding:64px 0}
-    .hero .wrap{padding:64px 20px 110px}
+  @media (max-width:680px){
+    section{padding:84px 0}
+    .hero .wrap{padding-top:108px;padding-bottom:180px}
+    .kicker .k2{display:none}
+    .sun{width:160px;height:160px;right:-20px;top:90px}
     .btn-row .btn{width:100%}
-    .card{padding:22px}
+    .bento,.steps,.why{grid-template-columns:1fr}
+    .card.feature{grid-column:auto;grid-template-columns:1fr;padding:34px 26px}
+    .card.feature .art{min-height:130px}
+    .card{padding:30px 24px 26px}
+    .join-card{padding:44px 24px;border-radius:26px}
+    form{padding:26px 20px}
+    .hero-card{padding:22px}
+    .hero-card .phone strong{font-size:1.35rem}
+    .marquee span{font-size:1.15rem}
+    .scroll-cue{display:none}
+    .about{gap:40px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .js .rv,.js .hero .fade,.js .hero h1 .l>span{opacity:1!important;transform:none!important}
+    .swash path{stroke-dashoffset:0}
   }
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
-<header>
+<header id="hdr">
   <div class="wrap nav">
-    <a href="#anasayfa" class="logo">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#2f5d34"/><path d="M20 31V14" stroke="#e8c872" stroke-width="2.4" stroke-linecap="round"/><path d="M20 22c-6 0-8-5-8-8 5 0 8 3 8 8zM20 18c5 0 7-4 7-7-4 0-7 3-7 7z" fill="#e8c872"/></svg>
-      Özdemir Tarım
+    <a href="#anasayfa" class="logo" aria-label="Özdemir Tarım ana sayfa">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#e3b54f"/><path d="M20 31V14" stroke="#0f2416" stroke-width="2.6" stroke-linecap="round"/><path d="M20 22c-6 0-8-5-8-8 5 0 8 3 8 8zM20 18c5 0 7-4 7-7-4 0-7 3-7 7z" fill="#0f2416"/></svg>
+      <span>Özdemir Tarım<small>Kadirli · Osmaniye</small></span>
     </a>
     <nav>
-      <button class="menu-btn" aria-label="Menü" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
-      <ul id="menu" onclick="this.classList.remove('open')">
+      <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul id="menu">
         <li><a href="#anasayfa">Ana Sayfa</a></li>
         <li><a href="#hakkimizda">Hakkımızda</a></li>
         <li><a href="#hizmetler">Hizmetlerimiz</a></li>
@@ -160,114 +306,195 @@
 </header>
 
 <section class="hero" id="anasayfa">
+  <div class="sun" aria-hidden="true"></div>
   <div class="wrap">
     <div>
-      <h1>Tarımın her yerinde <span>tam imâr</span></h1>
-      <div class="tagline">Tarlada A'dan Z'ye Güçlü Çözüm, Sahada Kesintisiz Koordinasyon.</div>
-      <p class="sub">Kendi traktör filomuz ve tam donanımlı tarım ekipmanlarımızla toprağı hazırlıyor, ekiyor ve hasada ulaştırıyoruz. Üstelik güçlü saha ağımızla kepçeciden zirai drone operatörüne, çekiciden yevmiyeci ekibine kadar bölgedeki tüm iş gücünü tek merkezden koordine ediyoruz.</p>
-      <div class="btn-row">
+      <span class="kicker fade d1"><i></i>Sahada 7/24<span class="k2">&nbsp;· Kadirli / Osmaniye</span></span>
+      <h1>
+        <span class="l"><span>Tarımın her yerinde</span></span>
+        <span class="l"><span><span class="gold">tam imâr<svg class="swash" viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M5 22 C 100 6, 260 4, 395 16"/></svg></span></span></span>
+      </h1>
+      <p class="tagline fade d2">Tarlada A'dan Z'ye Güçlü Çözüm, Sahada Kesintisiz Koordinasyon.</p>
+      <p class="sub fade d3">Kendi traktör filomuz ve tam donanımlı tarım ekipmanlarımızla toprağı hazırlıyor, ekiyor ve hasada ulaştırıyoruz. Üstelik güçlü saha ağımızla kepçeciden zirai drone operatörüne, çekiciden yevmiyeci ekibine kadar bölgedeki tüm iş gücünü tek merkezden koordine ediyoruz.</p>
+      <div class="btn-row fade d4">
         <a class="btn btn-wa" href="https://wa.me/905011530180?text=Merhaba%2C%20i%C5%9F%20%2F%20ekip%20talebim%20var." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
           Hemen İş / Ekip Talep Et
         </a>
-        <a href="#hizmetler" class="btn btn-ghost">Hizmetlerimizi İncele</a>
+        <a href="#hizmetler" class="btn btn-ghost">Hizmetlerimizi İncele <span class="arrow">→</span></a>
       </div>
     </div>
-    <div class="hero-card">
+    <div class="hero-card fade d4">
       <h3>Tek telefonla sahadayız</h3>
       <ul>
-        <li><span>🚜</span>A'dan Z'ye tarla işlemleri</li>
-        <li><span>🚁</span>Zirai drone ile ilaçlama</li>
-        <li><span>🏗️</span>Kepçe & iş makinesi</li>
-        <li><span>🚛</span>Çekici & ağır nakliye</li>
-        <li><span>👷</span>Yevmiyeci & saha ekibi</li>
+        <li><b>01</b>🚜 A'dan Z'ye tarla işlemleri</li>
+        <li><b>02</b>🚁 Zirai drone ile ilaçlama</li>
+        <li><b>03</b>🏗️ Kepçe & iş makinesi</li>
+        <li><b>04</b>🚛 Çekici & ağır nakliye</li>
+        <li><b>05</b>👷 Yevmiyeci & saha ekibi</li>
       </ul>
-      <a class="phone" href="tel:+905011530180">Telefon & WhatsApp (7/24)<b>0501 153 01 80</b></a>
+      <a class="phone" href="tel:+905011530180">
+        <span><small>Telefon & WhatsApp</small><strong>0501 153 01 80</strong></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
-  <svg class="hero-fields" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 80 Q300 20 600 70 T1200 50 V120 H0Z" fill="#fff"/>
-    <path d="M0 100 Q400 60 800 95 T1200 85 V120 H0Z" fill="#fff"/>
+
+  <svg class="land" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="h1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f6a3c"/><stop offset="1" stop-color="#1a3a24"/></linearGradient>
+      <linearGradient id="h2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f8a45"/><stop offset="1" stop-color="#24502f"/></linearGradient>
+      <linearGradient id="h3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c99a3f"/><stop offset="1" stop-color="#8a5a2c"/></linearGradient>
+      <pattern id="rows" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><path d="M0 11h22" stroke="#e3b54f" stroke-opacity=".28" stroke-width="2"/></pattern>
+    </defs>
+    <path d="M0 190 C 220 120, 420 170, 640 140 S 1080 90, 1440 150 V400 H0Z" fill="url(#h1)" opacity=".7"/>
+    <path d="M0 250 C 260 190, 520 240, 760 205 S 1180 180, 1440 215 V400 H0Z" fill="url(#h2)"/>
+    <path d="M0 250 C 260 190, 520 240, 760 205 S 1180 180, 1440 215 V400 H0Z" fill="url(#rows)"/>
+    <g class="drone">
+      <g fill="#0b1d11">
+        <rect x="-26" y="-4" width="52" height="8" rx="4"/>
+        <rect x="-10" y="-9" width="20" height="10" rx="4"/>
+        <ellipse class="rotor" cx="-30" cy="-8" rx="16" ry="2.2" fill="#e3b54f" opacity=".85"/>
+        <ellipse class="rotor" cx="30" cy="-8" rx="16" ry="2.2" fill="#e3b54f" opacity=".85"/>
+        <circle class="blink" cx="0" cy="6" r="2.5" fill="#ff5a4e"/>
+      </g>
+      <path class="spray" d="M-14 8 L-24 70 M0 8 L0 74 M14 8 L24 70" stroke="#cfe6c2" stroke-opacity=".5" stroke-width="2" stroke-dasharray="4 8"/>
+    </g>
+    <path d="M0 315 C 300 270, 640 320, 920 290 S 1260 270, 1440 290 V400 H0Z" fill="url(#h3)"/>
+    <path d="M0 315 C 300 270, 640 320, 920 290 S 1260 270, 1440 290 V400 H0Z" fill="url(#rows)" opacity=".8"/>
+    <g transform="translate(0 222)">
+      <g class="tractor">
+        <circle class="dust" cx="-8" cy="38" r="9" fill="#e7d3a1" opacity=".4"/>
+        <circle class="dust" cx="-16" cy="34" r="7" fill="#e7d3a1" opacity=".3" style="animation-delay:.4s"/>
+        <rect x="0" y="16" width="70" height="20" rx="4" fill="#0b1d11"/>
+        <path d="M40 16 V-6 H70 V16Z" fill="#0b1d11"/>
+        <rect x="46" y="-1" width="18" height="12" rx="2" fill="#e3b54f" opacity=".85"/>
+        <rect x="16" y="2" width="5" height="16" fill="#0b1d11"/>
+        <g class="wheel"><circle cx="58" cy="36" r="17" fill="#0b1d11"/><circle cx="58" cy="36" r="7" fill="#e3b54f"/><path d="M58 20v32M42 36h32" stroke="#24502f" stroke-width="2"/></g>
+        <g class="wheel"><circle cx="10" cy="42" r="10" fill="#0b1d11"/><circle cx="10" cy="42" r="4" fill="#e3b54f"/><path d="M10 33v18M1 42h18" stroke="#24502f" stroke-width="2"/></g>
+      </g>
+    </g>
   </svg>
+  <a href="#hakkimizda" class="scroll-cue" aria-label="Aşağı kaydır"></a>
 </section>
 
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Sürüm</span><span>Toprak Hazırlığı</span><span>Ekim</span><span>Gübreleme</span><span>Drone İlaçlama</span><span>Hasat</span><span>Kepçe</span><span>Çekici</span><span>Yevmiyeci</span><span>7/24 Koordinasyon</span>
+    <span>Sürüm</span><span>Toprak Hazırlığı</span><span>Ekim</span><span>Gübreleme</span><span>Drone İlaçlama</span><span>Hasat</span><span>Kepçe</span><span>Çekici</span><span>Yevmiyeci</span><span>7/24 Koordinasyon</span>
+  </div>
+</div>
+
 <section id="hakkimizda">
-  <div class="wrap">
-    <div class="eyebrow">Hakkımızda</div>
-    <div class="values"><span>Güvenilir</span><span>Şeffaf</span><span>Sizden Biri</span></div>
-    <h2 class="section-title">Sadece Makine Değil, Tam Teşekküllü Bir Saha Operasyonu Sunuyoruz</h2>
-    <p class="lead">Özdemir Tarım olarak tarımın ve saha işlerinin ne kadar zamanla yarıştığını çok iyi biliyoruz. Kendi bünyemizdeki modern traktör filomuz ve her türlü tarla işlemine uygun ekipmanlarımızla çiftçimizin toprağını A'dan Z'ye işliyoruz.</p>
-    <p class="lead">Bununla da kalmıyor; bölgemizde kurduğumuz geniş iletişim ve iş ağı sayesinde iş makinelerinden (kepçe) zirai ilaçlama dronelarına, oto/traktör çekicilerinden deneyimli yevmiyeci ekiplerine kadar ihtiyaç duyulan her noktaya anında müdahale ediyoruz. Nerede bir iş varsa, doğru ekibi ve doğru makineyi en hızlı şekilde oraya yönlendiriyoruz.</p>
-    <div class="highlights">
-      <div class="hl"><i>🚜</i>A'dan Z'ye Tam Donanımlı Traktör & Ekipman Filosu</div>
-      <div class="hl"><i>📲</i>7/24 Kesintisiz Saha & WhatsApp Koordinasyonu</div>
-      <div class="hl"><i>🎯</i>Tek Merkez Tarım, İş Makinesi ve İş Gücü Çözümleri</div>
-      <div class="hl"><i>✅</i>%100 Zamanında ve Güvenilir Teslimat</div>
-      <div class="hl"><i>➕</i>Ve daha birçok hizmet</div>
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow rv">Hakkımızda</div>
+      <h2 class="title rv d1">Sadece Makine Değil, <em>Tam Teşekküllü</em> Bir Saha Operasyonu Sunuyoruz</h2>
+      <p class="lead rv d2">Özdemir Tarım olarak tarımın ve saha işlerinin ne kadar zamanla yarıştığını çok iyi biliyoruz. Kendi bünyemizdeki modern traktör filomuz ve her türlü tarla işlemine uygun ekipmanlarımızla çiftçimizin toprağını A'dan Z'ye işliyoruz.</p>
+      <p class="lead rv d2">Bununla da kalmıyor; bölgemizde kurduğumuz geniş iletişim ve iş ağı sayesinde iş makinelerinden (kepçe) zirai ilaçlama dronelarına, oto/traktör çekicilerinden deneyimli yevmiyeci ekiplerine kadar ihtiyaç duyulan her noktaya anında müdahale ediyoruz. Nerede bir iş varsa, doğru ekibi ve doğru makineyi en hızlı şekilde oraya yönlendiriyoruz.</p>
+      <div class="values rv d3"><span>Güvenilir</span><span>Şeffaf</span><span>Sizden Biri</span></div>
     </div>
+    <ul class="hl-list">
+      <li class="rv"><b>01</b><span>A'dan Z'ye Tam Donanımlı Traktör & Ekipman Filosu</span></li>
+      <li class="rv d1"><b>02</b><span>7/24 Kesintisiz Saha & WhatsApp Koordinasyonu</span></li>
+      <li class="rv d2"><b>03</b><span>Tek Merkez Tarım, İş Makinesi ve İş Gücü Çözümleri</span></li>
+      <li class="rv d3"><b>04</b><span>%100 Zamanında ve Güvenilir Teslimat</span></li>
+      <li class="rv d3"><b>05</b><span>Ve daha birçok hizmet</span></li>
+    </ul>
   </div>
 </section>
 
 <section id="hizmetler" class="services">
   <div class="wrap">
-    <div class="eyebrow">Hizmetlerimiz</div>
-    <h2 class="section-title">Tarladan Sahaya İhtiyacınız Olan Her Şey Tek Çatı Altında</h2>
-    <p class="lead">İster kendi tarlanızın tüm ekim-bakım işleri olsun, ister acil bir iş makinesi ya da ekip ihtiyacı; tek telefonla sahadayız.</p>
-    <div class="grid">
-      <div class="card"><div class="icon">🚜</div><h3>A'dan Z'ye Tarla İşlemleri <span class="tag">Kendi Filomuz</span></h3><p>Kendi traktör filomuz ve geniş ekipman parkurumuzla sürüm, toprak hazırlığı, ekim, gübreleme, ilaçlama ve hasat dahil tarlanızın tüm işlemlerini eksiksiz yapıyoruz.</p></div>
-      <div class="card"><div class="icon">🚁</div><h3>Zirai Drone ile İlaçlama ve Gübreleme</h3><p>Ağımızdaki lisanslı drone pilotlarıyla mahsulünüze zarar vermeden, en zorlu arazi koşullarında bile hızlı, homojen ve tasarruflu ilaçlama hizmeti sağlıyoruz.</p></div>
-      <div class="card"><div class="icon">🏗️</div><h3>Kepçe ve İş Makinesi Kiralama</h3><p>Arazi tesviyesi, kanal açma, temel kazısı, yükleme ve her türlü hafriyat işleriniz için operatörlü kepçe ve iş makinelerini en kısa sürede sahanıza yönlendiriyoruz.</p></div>
-      <div class="card"><div class="icon">🚛</div><h3>Çekici ve Ağır Nakliye Desteği</h3><p>Yolda kalan araçlarınız, tarım makineleriniz veya taşınması gereken ekipmanlarınız için ağımızdaki çekici şoförleriyle 7/24 hızlı kurtarma ve nakliye çözümleri sunuyoruz.</p></div>
-      <div class="card"><div class="icon">👷</div><h3>Günlük Yevmiyeci ve Saha Ekibi</h3><p>Çapa, hasat, yükleme, dikim ve mevsimlik tarım işçiliği için güvenilir ve çalışkan yevmiyeci ekiplerini işinizin yoğunluğuna göre organize ediyoruz.</p></div>
-      <div class="card"><div class="icon">📡</div><h3>Bölgesel Saha Koordinasyonu <span class="tag">WhatsApp Ağı</span></h3><p>Bölgemizde nerede ne iş yapılıyorsa anlık takip ediyor; iş verenle iş yapanı (operatör, şoför, usta, işçi) aracısız ve en hızlı şekilde buluşturuyoruz.</p></div>
+    <div class="services-head">
+      <div>
+        <div class="eyebrow rv">Hizmetlerimiz</div>
+        <h2 class="title rv d1">Tarladan Sahaya İhtiyacınız Olan Her Şey <em>Tek Çatı Altında</em></h2>
+      </div>
+      <p class="lead rv d2" style="max-width:420px">İster kendi tarlanızın tüm ekim-bakım işleri olsun, ister acil bir iş makinesi ya da ekip ihtiyacı; tek telefonla sahadayız.</p>
+    </div>
+    <div class="bento">
+      <div class="card feature rv">
+        <div>
+          <span class="num">01</span>
+          <span class="tag">Kendi Filomuz</span>
+          <h3>A'dan Z'ye Tarla İşlemleri</h3>
+          <p>Kendi traktör filomuz ve geniş ekipman parkurumuzla sürüm, toprak hazırlığı, ekim, gübreleme, ilaçlama ve hasat dahil tarlanızın tüm işlemlerini eksiksiz yapıyoruz.</p>
+          <div class="chips"><span>Sürüm</span><span>Toprak hazırlığı</span><span>Ekim</span><span>Gübreleme</span><span>İlaçlama</span><span>Hasat</span></div>
+        </div>
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid meet">
+            <circle cx="220" cy="60" r="34" fill="#e3b54f" opacity=".9"/>
+            <path d="M0 150 C 80 120, 180 150, 300 125 V200 H0Z" fill="#2f6a3c"/>
+            <path d="M0 170 C 100 150, 200 175, 300 155 V200 H0Z" fill="#a4623a"/>
+            <g stroke="#e3b54f" stroke-opacity=".35" stroke-width="2"><path d="M0 182 C 100 165, 200 188, 300 170"/><path d="M0 194 C 100 178, 200 198, 300 184"/></g>
+            <g transform="translate(110 104)"><rect x="0" y="16" width="70" height="20" rx="4" fill="#0b1d11"/><path d="M40 16 V-6 H70 V16Z" fill="#0b1d11"/><rect x="46" y="-1" width="18" height="12" rx="2" fill="#e3b54f"/><rect x="16" y="2" width="5" height="16" fill="#0b1d11"/><g class="wheel"><circle cx="58" cy="36" r="17" fill="#0b1d11"/><circle cx="58" cy="36" r="7" fill="#e3b54f"/></g><g class="wheel"><circle cx="10" cy="42" r="10" fill="#0b1d11"/><circle cx="10" cy="42" r="4" fill="#e3b54f"/></g></g>
+          </svg>
+        </div>
+      </div>
+      <div class="card rv d1"><span class="num">02</span><div class="ic">🚁</div><h3>Zirai Drone ile İlaçlama ve Gübreleme</h3><p>Ağımızdaki lisanslı drone pilotlarıyla mahsulünüze zarar vermeden, en zorlu arazi koşullarında bile hızlı, homojen ve tasarruflu ilaçlama hizmeti sağlıyoruz.</p></div>
+      <div class="card rv"><span class="num">03</span><div class="ic">🏗️</div><h3>Kepçe ve İş Makinesi Kiralama</h3><p>Arazi tesviyesi, kanal açma, temel kazısı, yükleme ve her türlü hafriyat işleriniz için operatörlü kepçe ve iş makinelerini en kısa sürede sahanıza yönlendiriyoruz.</p></div>
+      <div class="card rv d1"><span class="num">04</span><div class="ic">🚛</div><h3>Çekici ve Ağır Nakliye Desteği</h3><p>Yolda kalan araçlarınız, tarım makineleriniz veya taşınması gereken ekipmanlarınız için ağımızdaki çekici şoförleriyle 7/24 hızlı kurtarma ve nakliye çözümleri sunuyoruz.</p></div>
+      <div class="card rv d2"><span class="num">05</span><div class="ic">👷</div><h3>Günlük Yevmiyeci ve Saha Ekibi</h3><p>Çapa, hasat, yükleme, dikim ve mevsimlik tarım işçiliği için güvenilir ve çalışkan yevmiyeci ekiplerini işinizin yoğunluğuna göre organize ediyoruz.</p></div>
+      <div class="card rv d1"><span class="num">06</span><div class="ic">📡</div><span class="tag">WhatsApp Ağı</span><h3>Bölgesel Saha Koordinasyonu</h3><p>Bölgemizde nerede ne iş yapılıyorsa anlık takip ediyor; iş verenle iş yapanı (operatör, şoför, usta, işçi) aracısız ve en hızlı şekilde buluşturuyoruz.</p></div>
+    </div>
+
+    <div class="steps">
+      <div class="step rv"><b>1</b><h3>Bize Yazın</h3><p>WhatsApp'tan ya da telefonla işinizi, yerini ve zamanını anlatın.</p></div>
+      <div class="step rv d1"><b>2</b><h3>Planlayalım</h3><p>Doğru makineyi, doğru ekibi ve en uygun fiyatı birlikte belirleyelim.</p></div>
+      <div class="step rv d2"><b>3</b><h3>Sahadayız</h3><p>Ekibimiz ve ekipmanımız zamanında tarlanızda ya da sahanızda olsun.</p></div>
     </div>
   </div>
 </section>
 
-<section id="neden-biz">
+<section id="neden-biz" class="why-sec">
+  <div class="glow" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="eyebrow">Neden Özdemir Tarım?</div>
-    <h2 class="section-title">Sahayı Bilen, İşi Yapan ve Çözüm Üreten Ekip</h2>
+    <div class="eyebrow rv">Neden Özdemir Tarım?</div>
+    <h2 class="title rv d1">Sahayı Bilen, İşi Yapan ve <em>Çözüm Üreten</em> Ekip</h2>
     <div class="why">
-      <div><h3>Kendi Ekipmanımızla Garantili İş</h3><p>Tarla işlerinizi dışarıya bağımlı kalmadan, doğrudan kendi traktör ve ekipman filomuzla birinci sınıf işçilikle tamamlıyoruz.</p></div>
-      <div><h3>Geniş ve Güvenilir Usta/Operatör Ağı</h3><p>Kepçecisinden dronecusuna, çekicisinden işçisine kadar her biri işinin ehli kişilerden oluşan hazır bir ağa sahibiz.</p></div>
-      <div><h3>Zaman Kaybına Son</h3><p>"Makine nerede, işçi bulabilecek miyiz?" derdini bitiriyoruz. Tek noktadan tüm saha operasyonunuzu planlıyoruz.</p></div>
-      <div><h3>Şeffaf ve Adil Fiyatlandırma</h3><p>Hem tarla sahiplerinin hem de sahada ter döken operatör ve işçilerimizin hakkını koruyan dürüst bir çalışma sistemi sunuyoruz.</p></div>
-      <div><h3>Dilediğiniz Gibi Yönlendirme</h3><p>İşinizi nasıl istiyorsanız öyle planlıyoruz; ekibi ve makineyi ihtiyacınıza göre yönlendiriyoruz.</p></div>
-      <div><h3>Kendi Ekipmanlarınız Yıpranmasın</h3><p>Kendi traktör ve ekipmanlarınızı yormadan, işinizi bizim filomuz ve ağımızla yaptırın.</p></div>
+      <div class="rv"><i>1</i><h3>Kendi Ekipmanımızla Garantili İş</h3><p>Tarla işlerinizi dışarıya bağımlı kalmadan, doğrudan kendi traktör ve ekipman filomuzla birinci sınıf işçilikle tamamlıyoruz.</p></div>
+      <div class="rv d1"><i>2</i><h3>Geniş ve Güvenilir Usta/Operatör Ağı</h3><p>Kepçecisinden dronecusuna, çekicisinden işçisine kadar her biri işinin ehli kişilerden oluşan hazır bir ağa sahibiz.</p></div>
+      <div class="rv d2"><i>3</i><h3>Zaman Kaybına Son</h3><p>"Makine nerede, işçi bulabilecek miyiz?" derdini bitiriyoruz. Tek noktadan tüm saha operasyonunuzu planlıyoruz.</p></div>
+      <div class="rv"><i>4</i><h3>Şeffaf ve Adil Fiyatlandırma</h3><p>Hem tarla sahiplerinin hem de sahada ter döken operatör ve işçilerimizin hakkını koruyan dürüst bir çalışma sistemi sunuyoruz.</p></div>
+      <div class="rv d1"><i>5</i><h3>Dilediğiniz Gibi Yönlendirme</h3><p>İşinizi nasıl istiyorsanız öyle planlıyoruz; ekibi ve makineyi ihtiyacınıza göre yönlendiriyoruz.</p></div>
+      <div class="rv d2"><i>6</i><h3>Kendi Ekipmanlarınız Yıpranmasın</h3><p>Kendi traktör ve ekipmanlarınızı yormadan, işinizi bizim filomuz ve ağımızla yaptırın.</p></div>
     </div>
   </div>
 </section>
 
-<section id="ekibe-katil" class="join">
-  <div class="wrap join-box">
-    <div>
-      <div class="eyebrow">Ekibe Katıl / İş Talebi</div>
-      <h2 class="section-title">İşiniz mi Var, Yoksa Ekibimize mi Katılmak İstiyorsunuz?</h2>
-      <p class="lead">Tarlanız için ekipman, kepçe, drone, çekici veya yevmiyeci arıyorsanız bize hemen yazın. Eğer siz de kendi makinenizle veya emeğinizle saha ağımızda yer almak istiyorsanız WhatsApp koordinasyon grubumuza katılmak için bizimle iletişime geçin.</p>
-    </div>
-    <div class="join-actions">
-      <a class="btn btn-green" href="https://wa.me/905011530180?text=Merhaba%2C%20i%C5%9F%20%2F%20ekipman%20talebim%20var." target="_blank" rel="noopener">🚜 İş / Ekipman Talep Et</a>
-      <a class="btn btn-outline" href="https://wa.me/905011530180?text=Merhaba%2C%20saha%20a%C4%9F%C4%B1n%C4%B1za%20kat%C4%B1lmak%20istiyorum." target="_blank" rel="noopener">🤝 Saha Ağına Katıl</a>
+<section id="ekibe-katil">
+  <div class="wrap">
+    <div class="join-card rv">
+      <svg class="rings" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#0f2416" stroke-width="1"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="90"/></g></svg>
+      <div>
+        <div class="eyebrow">Ekibe Katıl / İş Talebi</div>
+        <h2 class="title">İşiniz mi Var, Yoksa Ekibimize mi <em>Katılmak</em> İstiyorsunuz?</h2>
+        <p class="lead">Tarlanız için ekipman, kepçe, drone, çekici veya yevmiyeci arıyorsanız bize hemen yazın. Eğer siz de kendi makinenizle veya emeğinizle saha ağımızda yer almak istiyorsanız WhatsApp koordinasyon grubumuza katılmak için bizimle iletişime geçin.</p>
+      </div>
+      <div class="join-actions">
+        <a class="btn btn-dark" href="https://wa.me/905011530180?text=Merhaba%2C%20i%C5%9F%20%2F%20ekipman%20talebim%20var." target="_blank" rel="noopener"><span>🚜 İş / Ekipman Talep Et</span><span class="arrow">→</span></a>
+        <a class="btn btn-line" href="https://wa.me/905011530180?text=Merhaba%2C%20saha%20a%C4%9F%C4%B1n%C4%B1za%20kat%C4%B1lmak%20istiyorum." target="_blank" rel="noopener"><span>🤝 Saha Ağına Katıl</span><span class="arrow">→</span></a>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="iletisim" class="contact">
   <div class="wrap">
-    <div class="eyebrow">İletişim</div>
-    <h2 class="section-title">7/24 Saha ve Koordinasyon Hattı</h2>
-    <p class="lead">Acil çekici, kepçe, drone, şoför, 2. el alım satım, yevmiyeci ve daha birçok hizmet talepleriniz veya A'dan Z'ye tarla işlemleri fiyat teklifi almak için bize dilediğiniz an ulaşabilirsiniz.</p>
+    <div class="eyebrow rv">İletişim</div>
+    <h2 class="title rv d1">7/24 Saha ve <em>Koordinasyon</em> Hattı</h2>
+    <p class="lead rv d2">Acil çekici, kepçe, drone, şoför, 2. el alım satım, yevmiyeci ve daha birçok hizmet talepleriniz veya A'dan Z'ye tarla işlemleri fiyat teklifi almak için bize dilediğiniz an ulaşabilirsiniz.</p>
     <div class="contact-grid">
-      <div>
-        <div class="info-item"><span>📍</span><div><small>Bölge</small>Kadirli / Osmaniye ve Çevre İlçeler</div></div>
-        <div class="info-item"><span>📞</span><div><small>Telefon & WhatsApp</small><a href="tel:+905011530180">0501 153 01 80</a></div></div>
-        <div class="info-item"><span>✉️</span><div><small>E-posta</small><a href="mailto:mertozdemr12@icloud.com">mertozdemr12@icloud.com</a></div></div>
-        <div class="info-item"><span>🕗</span><div><small>Çalışma Saatleri</small>Sahada 7/24 Kesintisiz İletişim</div></div>
+      <div class="info">
+        <a class="rv" href="tel:+905011530180"><span class="ico">📞</span><span><small>Telefon & WhatsApp</small><strong>0501 153 01 80</strong></span></a>
+        <a class="rv d1" href="mailto:mertozdemr12@icloud.com"><span class="ico">✉️</span><span><small>E-posta</small><strong>mertozdemr12@icloud.com</strong></span></a>
+        <div class="it rv d2"><span class="ico">📍</span><span><small>Bölge</small><strong>Kadirli / Osmaniye ve Çevre İlçeler</strong></span></div>
+        <div class="it rv d3"><span class="ico">🕗</span><span><small>Çalışma Saatleri</small><strong>Sahada 7/24 Kesintisiz İletişim</strong></span></div>
       </div>
-      <form id="talep">
+      <form id="talep" class="rv d1">
         <h3>Hızlı Talep Formu</h3>
-        <input name="ad" placeholder="Adınız Soyadınız" required>
+        <input name="ad" placeholder="Adınız Soyadınız" autocomplete="name" required>
         <select name="konu" aria-label="Talep konusu">
           <option>A'dan Z'ye tarla işlemleri</option>
           <option>Zirai drone ilaçlama / gübreleme</option>
@@ -279,7 +506,10 @@
           <option>Diğer</option>
         </select>
         <textarea name="mesaj" placeholder="Talebiniz (yer, tarih, iş detayı)" required></textarea>
-        <button class="btn btn-wa" type="submit">WhatsApp ile Gönder</button>
+        <button class="btn btn-wa" type="submit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
+          WhatsApp ile Gönder
+        </button>
         <small>Gönder'e basınca mesajınız WhatsApp'ta hazır olarak açılır.</small>
       </form>
     </div>
@@ -288,8 +518,11 @@
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yil"></span> Özdemir Tarım. Tüm hakları saklıdır.</span>
-    <span>Tarımın her yerinde tam imâr.</span>
+    <div class="wordmark" aria-hidden="true">Özdemir Tarım</div>
+    <div class="foot">
+      <span>© <span id="yil"></span> Özdemir Tarım. Tüm hakları saklıdır.</span>
+      <span>Tarımın her yerinde tam imâr.</span>
+    </div>
   </div>
 </footer>
 
@@ -298,13 +531,31 @@
 </a>
 
 <script>
-document.getElementById('yil').textContent=new Date().getFullYear();
-document.getElementById('talep').addEventListener('submit',function(e){
-  e.preventDefault();
-  var f=this;
-  var t='Merhaba, ben '+f.ad.value+'.\nKonu: '+f.konu.value+'\n'+f.mesaj.value;
-  window.open('https://wa.me/905011530180?text='+encodeURIComponent(t),'_blank');
-});
+(function(){
+  var d=document, root=d.documentElement;
+  d.getElementById('yil').textContent=new Date().getFullYear();
+  requestAnimationFrame(function(){setTimeout(function(){root.classList.add('loaded')},60)});
+
+  var hdr=d.getElementById('hdr');
+  function onScroll(){hdr.classList.toggle('solid',window.scrollY>40)}
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  var btn=d.getElementById('menuBtn'), menu=d.getElementById('menu');
+  btn.addEventListener('click',function(){var o=root.classList.toggle('menu-open');btn.setAttribute('aria-expanded',o)});
+  menu.addEventListener('click',function(e){if(e.target.closest('a')){root.classList.remove('menu-open');btn.setAttribute('aria-expanded','false')}});
+
+  var els=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){io.observe(el)});
+  } else { els.forEach(function(el){el.classList.add('in')}); }
+
+  d.getElementById('talep').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=this, t='Merhaba, ben '+f.ad.value+'.\nKonu: '+f.konu.value+'\n'+f.mesaj.value;
+    window.open('https://wa.me/905011530180?text='+encodeURIComponent(t),'_blank');
+  });
+})();
 </script>
 </body>
 </html>
